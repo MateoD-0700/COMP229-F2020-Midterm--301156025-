@@ -113,11 +113,12 @@ router.get('/delete/:id', (req, res, next) => {
      let id = req.params.id;
      book.remove({ _id: id } ,(err) => {
        if(err) {
-         console.log(err);
+         console.error(err);
          res.end(err);
-       } 
-     res.redirect('/books');
+       }res.redirect('/books');
        });
+     
+
 });
 
 

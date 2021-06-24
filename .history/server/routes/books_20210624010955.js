@@ -89,8 +89,8 @@ router.post('/edit/:id', (req, res, next) => {
       "_id": id,
       "Title": req.body.Title,
       "Description": req.body.Description,
-      "Price": req.body.Price,
       "Author": req.body.Author,
+      "Price": req.body.Price,
       "Genre": req.body.Genre
     }
 
@@ -111,13 +111,15 @@ router.get('/delete/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
      let id = req.params.id;
-     book.remove({ _id: id } ,(err) => {
-       if(err) {
+     book.remove({_id:id} ,(err) =>{
+       if(err){
          console.log(err);
          res.end(err);
-       } 
-     res.redirect('/books');
-       });
+       } else{
+         res.redirect('/books');
+       }
+     });
+
 });
 
 
